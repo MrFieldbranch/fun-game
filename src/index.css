@@ -1,0 +1,42 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 10px;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: rgb(250, 234, 215);
+  color: black;
+}
+
+.main-container {
+  width: 100%;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+a {
+  font-size: 1.6rem;
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.3s ease; 
+}
+
+a:hover {
+	color: green;
+}
+
+a,
+button,
+input {
+  font-family: inherit;
+  color: inherit;
+}
