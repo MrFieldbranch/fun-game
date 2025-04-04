@@ -3,6 +3,7 @@ import StartView from "./views/StartView";
 import LoginView from "./views/LoginView";
 import RegisterNewUserView from "./views/RegisterNewUserView";
 import NotFoundView from "./views/NotFoundView";
+import HangmanView from "./views/HangmanView";
 
 const App = () => {
 
@@ -13,6 +14,7 @@ const App = () => {
         <Route path="/start" element={<StartView />} />
         <Route path="/login" element={<LoginView />} />
         <Route path="/registernewuser" element={<RegisterNewUserView />} />
+        <Route path="/hangman" element={<HangmanView />} />
         <Route path="*" element={<NotFoundView />} />
       </Routes>
     </div>
