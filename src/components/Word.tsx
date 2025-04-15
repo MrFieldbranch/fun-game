@@ -11,7 +11,7 @@ const Word = ({ guessedLetters, wordToGuess, reveal = false }: WordProps) => {
         <span
           key={index}
           style={{
-            borderBottom: "0.5rem solid black",
+            borderBottom: "0.5rem solid white",
             height: "6.2rem",
             display: "inline-block",
             width: "4rem",
@@ -25,7 +25,7 @@ const Word = ({ guessedLetters, wordToGuess, reveal = false }: WordProps) => {
                   ? "visible"
                   : "hidden",
               color:
-                !guessedLetters.includes(letter) && reveal ? "red" : "black",
+                !guessedLetters.includes(letter) && reveal ? "red" : "white",
             }}
           >
             {letter}

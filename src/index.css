@@ -10,14 +10,18 @@ html {
 
 body {
   font-family: Arial, Helvetica, sans-serif;
-  background-color: rgb(250, 234, 215);
-  color: black;
+  background-color: black;
+  color: white;
   width: 100vw;
   min-height: 100vh;
 }
 
 h1 {
   font-size: 2rem;
+}
+
+p {
+	font-size: 1.6rem;
 }
 
 a {
@@ -28,14 +32,17 @@ a {
 }
 
 a:hover {
-  color: green;
+  color: whitesmoke;
 }
 
 a,
 button,
 input {
   font-family: inherit;
-  color: inherit;
+}
+
+input {
+  color: black;
 }
 
 button {
@@ -90,8 +97,8 @@ nav {
   font-size: 2rem;
   border: none;
   border-radius: 1rem;
-  background-color: rgb(3, 122, 3);
-  color: white;
+  background-color: yellow;
+  color: black;
 }
 
 .win-or-lose-message {
@@ -114,7 +121,7 @@ nav {
   top: 30em;
   width: 25em;
   height: 1em;
-  background-color: black;
+  background-color: white;
 }
 
 .beam-2 {
@@ -123,7 +130,7 @@ nav {
   left: 12em;
   width: 1em;
   height: 30em;
-  background-color: black;
+  background-color: white;
 }
 
 .beam-3 {
@@ -132,7 +139,7 @@ nav {
   left: 13em;
   height: 1em;
   width: 17em;
-  background-color: black;
+  background-color: white;
 }
 
 .beam-4 {
@@ -141,7 +148,7 @@ nav {
   left: 29em;
   height: 5em;
   width: 1em;
-  background-color: black;
+  background-color: white;
 }
 
 .head {
@@ -151,7 +158,7 @@ nav {
   width: 5em;
   height: 5em;
   background-color: none;
-  border: 1em solid black;
+  border: 1em solid white;
   border-radius: 100%;
 }
 
@@ -161,12 +168,12 @@ nav {
   left: 29em;
   width: 1em;
   height: 8em;
-  background-color: black;
+  background-color: white;
 }
 
 .left-arm {
   position: absolute;
-  background-color: black;
+  background-color: white;
   width: 6em;
   height: 1em;
   top: 11em;
@@ -177,7 +184,7 @@ nav {
 
 .right-arm {
   position: absolute;
-  background-color: black;
+  background-color: white;
   width: 6em;
   height: 1em;
   top: 11em;
@@ -188,7 +195,7 @@ nav {
 
 .left-leg {
   position: absolute;
-  background-color: black;
+  background-color: white;
   width: 7.5em;
   height: 1em;
   top: 17.5em;
@@ -199,7 +206,7 @@ nav {
 
 .right-leg {
   position: absolute;
-  background-color: black;
+  background-color: white;
   width: 7.5em;
   height: 1em;
   top: 17.5em;
@@ -231,7 +238,7 @@ nav {
 
 .keyboard-btn {
   width: 7rem;
-  border: 3px solid black;
+  border: 3px solid white;
   background-color: none;
   aspect-ratio: 1 / 1;
   font-size: 3em;
@@ -271,6 +278,7 @@ nav {
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: white;
+  color: black;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -300,3 +308,45 @@ nav {
   }
 }
 
+.high-score-headers,
+.high-score-users {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.high-score-header-group {
+	display: flex;	
+	align-items: center;
+}
+
+.high-score-header-group h2 {
+	margin-right: 2rem;
+}
+
+.high-score-header-group,
+.user-record-data {
+	width: 17rem;
+}
+
+/* .user-record-data {
+	text-align: center;
+} */
+
+.arrow-up {
+  background-image: url(./images/icons8-arrow-up-30.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 2rem;
+  height: 2rem;  
+}
+
+.arrow-down {
+  background-image: url(./images/icons8-arrow-down-30.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 2rem;
+  height: 2rem; 
+}
