@@ -80,54 +80,54 @@ const HighScoreView = () => {
         <div className="high-score-headers">
           <div className="high-score-header-group">
             <h2>Namn</h2>
-            <div className="arrows">
+            <div className="high-score-sorting-buttons">
               <button
-                className="arrow-up"
+                className="direction-1"
                 onClick={sortUsersByNicknameAsc}
-              ></button>
+              >A on top</button>
               <button
-                className="arrow-down"
+                className="direction-2"
                 onClick={sortUsersByNicknameDesc}
-              ></button>
+              >Ö on top</button>
             </div>
           </div>
           <div className="high-score-header-group">
             <h2>Antal spel</h2>
-            <div className="arrows">
+            <div className="high-score-sorting-buttons">
               <button
-                className="arrow-up"
-                onClick={sortUsersByNumberOfGamesAsc}
-              ></button>
-              <button
-                className="arrow-down"
+                className="direction-1"
                 onClick={sortUsersByNumberOfGamesDesc}
-              ></button>
+              >Max on top</button>
+              <button
+                className="direction-2"
+                onClick={sortUsersByNumberOfGamesAsc}
+              >Min on top</button>
             </div>
           </div>
           <div className="high-score-header-group">
             <h2>Antal vinster</h2>
-            <div className="arrows">
+            <div className="high-score-sorting-buttons">
               <button
-                className="arrow-up"
-                onClick={sortUsersByNumberOfWinsAsc}
-              ></button>
-              <button
-                className="arrow-down"
+                className="direction-1"
                 onClick={sortUsersByNumberOfWinsDesc}
-              ></button>
+              >Max on top</button>
+              <button
+                className="direction-2"
+                onClick={sortUsersByNumberOfWinsAsc}
+              >Min on top</button>
             </div>
           </div>
           <div className="high-score-header-group">
             <h2>Vinstprocent</h2>
-            <div className="arrows">
+            <div className="high-score-sorting-buttons">
               <button
-                className="arrow-up"
-                onClick={sortUsersByWinPercentAsc}
-              ></button>
-              <button
-                className="arrow-down"
+                className="direction-1"
                 onClick={sortUsersByWinPercentDesc}
-              ></button>
+              >Max on top</button>
+              <button
+                className="direction-2"
+                onClick={sortUsersByWinPercentAsc}
+              >Min on top</button>
             </div>
           </div>
         </div>
@@ -135,7 +135,7 @@ const HighScoreView = () => {
           <p>Inga användare finns</p>
         ) : (
           listOfUsers.map((user) => (
-            <div className="high-score-users" key={user.id}>
+            <div className="high-score-user" key={user.id}>
               <p className="user-record-data">{user.nickname}</p>
               <p className="user-record-data">{user.numberOfGames}</p>
               <p className="user-record-data">{user.numberOfWins}</p>

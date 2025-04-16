@@ -10,29 +10,32 @@ html {
 
 body {
   font-family: Arial, Helvetica, sans-serif;
-  background-color: black;
+  background-color: rgb(12, 13, 11);
   color: white;
   width: 100vw;
   min-height: 100vh;
 }
 
+@import url("https://fonts.googleapis.com/css2?family=Creepster&display=swap");
+
 h1 {
-  font-size: 2rem;
+  font-size: 4rem;
 }
 
 p {
-	font-size: 1.6rem;
+  font-size: 1.6rem;
 }
 
 a {
   font-size: 1.6rem;
+  color: inherit;
   font-weight: bold;
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 a:hover {
-  color: whitesmoke;
+  color: gray;
 }
 
 a,
@@ -43,27 +46,136 @@ input {
 
 input {
   color: black;
+  width: 35rem;
+  height: 4rem;
+  font-size: 1.6rem;
+  padding-left: 1rem;
+  border-radius: 0.5rem;
+  border: none;
+  box-shadow: none;
+}
+
+label {
+  font-size: 1.4rem;
 }
 
 button {
   cursor: pointer;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+.start {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.start h1 {
+  font-family: "Creepster", cursive;
+  text-shadow: 2px 2px gray;
+  font-size: 6rem;
+  margin-top: 5vh;
+}
+
+.skeleton-image-container {
+  background-image: url(./images/skeleton-image.png);
+  width: 25rem;
+  height: 50rem;
+  background-size: cover;
+  background-position: center;
+}
+
+.start-links {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.start-links a {
+  font-size: 2.5rem;
+}
+
+#login-link {
+  width: 50%;
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 10%;
+}
+
+#register-link {
+  width: 50%;
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 10%;
+}
+
+.login-register {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-register-upper-part {
+  padding-bottom: 15rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.login-register a {
+  font-size: 2rem;
+}
+
+.login-register button {
+  background-color: orange;
+  font-size: 1.8rem;
+}
+
+.login-register button:hover {
+  background-color: rgb(186, 128, 21);
+}
+
+.label-and-input {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 nav {
   width: 100vw;
+  padding: 0 5%;
   height: 5rem;
+  background-color: rgb(12, 13, 11);
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 10px rgba(0, 150, 255, 0.2);
+}
+
+.high-score-link-in-nav {
+  background-color: inherit;
+  color: white;
+}
+
+.high-score-link-in-nav:hover {
+  color: gray;
 }
 
 .log-out-btn {
   padding: 0.5rem 1rem;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   border: none;
   border-radius: 1rem;
-  background-color: rebeccapurple;
+  background-color: rgba(0, 150, 255, 0.2);
   color: white;
 }
 
@@ -73,17 +185,12 @@ nav {
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  /* max-width: 80rem;  */
-  /* display: flex; */
-  /* flex-direction: column; */
-  /* gap: 2rem; */
-  /* margin: 0 auto;  */
-  /* align-items: center; */
 }
 
-.upper-part-container {
+.hangman-upper-part {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  padding: 0 5%;
 }
 
 .new-word-and-result-message-container {
@@ -94,10 +201,12 @@ nav {
 
 .new-word-btn {
   padding: 1rem;
-  font-size: 2rem;
+
+  width: 10rem;
+  font-size: 1.6rem;
   border: none;
   border-radius: 1rem;
-  background-color: yellow;
+  background-color: orange;
   color: black;
 }
 
@@ -308,30 +417,48 @@ nav {
   }
 }
 
+.high-score {
+  padding-top: 4rem;
+}
+
 .high-score-headers,
-.high-score-users {
+.high-score-user {
   display: flex;
   justify-content: space-around;
   width: 100%;
+  margin-bottom: 2rem;
 }
 
 .high-score-header-group {
-	display: flex;	
-	align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .high-score-header-group h2 {
-	margin-right: 2rem;
+	font-size: 2.5rem;
+  margin-right: 2rem;
 }
 
 .high-score-header-group,
 .user-record-data {
-	width: 17rem;
+  width: 20%;
 }
 
 /* .user-record-data {
 	text-align: center;
 } */
+
+.direction-1 {
+  color: black;
+  background-color: rgb(87, 147, 87);
+  font-size: 1.1rem;
+}
+
+.direction-2 {
+  color: black;
+  background-color: rgb(193, 91, 91);
+  font-size: 1.1rem;
+}
 
 .arrow-up {
   background-image: url(./images/icons8-arrow-up-30.png);
@@ -339,7 +466,7 @@ nav {
   background-position: center;
   background-repeat: no-repeat;
   width: 2rem;
-  height: 2rem;  
+  height: 2rem;
 }
 
 .arrow-down {
@@ -348,5 +475,5 @@ nav {
   background-position: center;
   background-repeat: no-repeat;
   width: 2rem;
-  height: 2rem; 
+  height: 2rem;
 }

@@ -99,7 +99,7 @@ const HangmanView = () => {
     <div className="logged-in-container">
       <Nav gameIsRunning={gameIsRunning} />
       <div className="hangman">
-        <div className="upper-part-container">
+        <div className="hangman-upper-part">
           <div className="new-word-and-result-message-container">
             <button className="new-word-btn" onClick={startGame}>
               Nytt ord

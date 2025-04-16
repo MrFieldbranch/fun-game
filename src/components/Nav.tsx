@@ -87,7 +87,7 @@ const Nav = ({ gameIsRunning }: NavProps) => {
     return (
       <nav>
         <p>Inloggad som: {loggedInUserNickname}</p>
-        <button onClick={handleNavigateToHighScore}>Highscore</button>
+        <button className="high-score-link-in-nav" onClick={handleNavigateToHighScore}>Highscore</button>
         {/* <Link to="/highscore">Maratontabell</Link> */}
         <button className="log-out-btn" onClick={handleLogoutFromHangmanView}>
           Logga ut
@@ -136,8 +136,3 @@ const Nav = ({ gameIsRunning }: NavProps) => {
 };
 
 export default Nav;
-
-/*Ha logik för att kolla var man är nånstans (routen). Jag tror att jag har något
-sådant från social-media. Om man är på hangman, då ska highscore visas, och vice versa.
-Något som hör ihop med detta är kontrollen om gameIsRunning är true. Detta behöver man
-ju inte göra när man är på highscore. */

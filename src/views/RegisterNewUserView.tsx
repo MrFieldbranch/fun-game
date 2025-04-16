@@ -9,7 +9,9 @@ const RegisterNewUserView = () => {
   const [newEmail, setNewEmail] = useState<string>("");
   const [newPassword, setNewPassword] = useState<string>("");
   const [newNickname, setNewNickname] = useState<string>("");
-  const [registrationError, setRegistrationError] = useState<string | null>(null);
+  const [registrationError, setRegistrationError] = useState<string | null>(
+    null
+  );
   const [loginError, setLoginError] = useState<string | null>(null);
 
   const navigate = useNavigate();
@@ -47,7 +49,7 @@ const RegisterNewUserView = () => {
         loginRequest
       );
       apiService.setAuthorizationHeader(loginResponse.token);
-	  localStorage.setItem("nickname", loginResponse.nickname);
+      localStorage.setItem("nickname", loginResponse.nickname);
       navigate("/hangman");
     } catch (err: any) {
       setLoginError(err.message || "Inloggningen misslyckades");
@@ -64,7 +66,7 @@ const RegisterNewUserView = () => {
   const handleLoginError = () => {
     setLoginError(null);
     navigate("/login");
-  };  
+  };
 
   if (registrationError)
     return (
@@ -75,7 +77,7 @@ const RegisterNewUserView = () => {
           <button onClick={handleRegistrationError}>Tillbaka</button>
         </div>
       </>
-    );  
+    );
 
   if (loginError)
     return (
@@ -89,49 +91,51 @@ const RegisterNewUserView = () => {
     );
 
   return (
-    <div className="register">
-      <h1>NY ANVÄNDARE</h1>
-      <div>
-        <label htmlFor="email">Email:</label>
-        <input
-          type="email"
-          autoComplete="off"
-          id="email"
-          value={newEmail}
-          required
-          onChange={(e) => setNewEmail(e.target.value)}
-        />
+    <div className="login-register">
+      <div className="login-register-upper-part">
+        <h1>NY ANVÄNDARE</h1>
+        <div className="label-and-input">
+          <label htmlFor="email">Email:</label>
+          <input
+            type="email"
+            autoComplete="off"
+            id="email"
+            value={newEmail}
+            required
+            onChange={(e) => setNewEmail(e.target.value)}
+          />
+        </div>
+        <div className="label-and-input">
+          <label htmlFor="password">Lösenord:</label>
+          <input
+            type="password"
+            id="password"
+            value={newPassword}
+            required
+            onChange={(e) => setNewPassword(e.target.value)}
+          />
+        </div>
+        <div className="label-and-input">
+          <label htmlFor="nickname">Användarnamn:</label>
+          <input
+            type="text"
+            autoComplete="off"
+            id="nickname"
+            value={newNickname}
+            required
+            onChange={(e) => setNewNickname(e.target.value)}
+          />
+        </div>
+        <button
+          onClick={() =>
+            handleRegisterAndLogin(newEmail, newPassword, newNickname)
+          }
+        >
+          OK
+        </button>
       </div>
-      <div>
-        <label htmlFor="password">Lösenord:</label>
-        <input
-          type="password"
-          id="password"
-          value={newPassword}
-          required
-          onChange={(e) => setNewPassword(e.target.value)}
-        />
-      </div>
-      <div>
-        <label htmlFor="nickname">Användarnamn:</label>
-        <input
-          type="text"
-          autoComplete="off"
-          id="nickname"
-          value={newNickname}
-          required
-          onChange={(e) => setNewNickname(e.target.value)}
-        />
-      </div>
-      <button
-        onClick={() =>
-          handleRegisterAndLogin(newEmail, newPassword, newNickname)
-        }
-      >
-        Registrera dig
-      </button>
 
-      <Link to="/start">TILLBAKA TILL START</Link>
+      <Link to="/start">Tillbaka till Start</Link>
     </div>
   );
 };

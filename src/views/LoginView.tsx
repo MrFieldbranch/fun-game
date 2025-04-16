@@ -46,31 +46,34 @@ const LoginView = () => {
     );
 
   return (
-    <div className="login">
-      <h1>LOGGA IN</h1>
-      <div>
-        <label htmlFor="email">Email:</label>
-        <input
-          type="email"
-          autoComplete="off"
-          id="email"
-          value={email}
-          required
-          onChange={(e) => setEmail(e.target.value)}
-        />
+    <div className="login-register">
+      <div className="login-register-upper-part">
+        <h1>LOGGA IN</h1>
+        <div className="label-and-input">
+          <label htmlFor="email">Email:</label>
+          <input
+            type="email"
+            autoComplete="off"
+            id="email"
+            value={email}
+            required
+            onChange={(e) => setEmail(e.target.value)}
+          />
+        </div>
+        <div className="label-and-input">
+          <label htmlFor="password">Lösenord:</label>
+          <input
+            type="password"
+            id="password"
+            value={password}
+            required
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </div>
+        <button onClick={() => handleLogin(email, password)}>OK</button>
       </div>
-      <div>
-        <label htmlFor="password">Lösenord:</label>
-        <input
-          type="password"
-          id="password"
-          value={password}
-          required
-          onChange={(e) => setPassword(e.target.value)}
-        />
-      </div>
-      <button onClick={() => handleLogin(email, password)}>Logga in</button>
-      <Link to="/start">TILLBAKA TILL START</Link>
+
+      <Link to="/start">Tillbaka till Start</Link>
     </div>
   );
 };
