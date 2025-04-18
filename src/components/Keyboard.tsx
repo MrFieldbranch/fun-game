@@ -31,14 +31,14 @@ const KEYS = [
 ];
 
 type KeyboardProps = {
-  disabledBecauseGameIsOver?: boolean;
+  disabledBecauseGameIsNotRunning?: boolean;
   correctLetters: string[];
   incorrectLetters: string[];
   addGuessedLetter: (letter: string) => void;
 };
 
 const Keyboard = ({
-  disabledBecauseGameIsOver,
+  disabledBecauseGameIsNotRunning,
   correctLetters,
   incorrectLetters,
   addGuessedLetter,
@@ -53,7 +53,7 @@ const Keyboard = ({
             key={letter}
             onClick={() => addGuessedLetter(letter)}
             className={`keyboard-btn ${isCorrect ? "correct-letter-btn" : ""} ${isIncorrect ? "incorrect-letter-btn" : ""}`}
-			disabled={isCorrect || isIncorrect || disabledBecauseGameIsOver}
+			disabled={isCorrect || isIncorrect || disabledBecauseGameIsNotRunning}
           >
             {letter}
           </button>

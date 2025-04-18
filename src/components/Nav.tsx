@@ -3,6 +3,9 @@ import apiService from "../services/api-service";
 import { useState } from "react";
 import { IGameResultRequest } from "../models/IGameResultRequest";
 
+// Jag behöver inte ha med setGameIsRunning som prop. 
+// Den nollställs ändå, när jag navigerar till HangmanView.
+
 type NavProps = {
   gameIsRunning?: boolean;
 };
@@ -54,7 +57,7 @@ const Nav = ({ gameIsRunning }: NavProps) => {
     const result: IGameResultRequest = {
       isWinner: false,
     };
-    setConfirmLosingGameAndNavigate(false);
+    setConfirmLosingGameAndNavigate(false);	
     sendGameResult(result);
     navigate("/highscore");
   };
@@ -87,7 +90,12 @@ const Nav = ({ gameIsRunning }: NavProps) => {
     return (
       <nav>
         <p>Inloggad som: {loggedInUserNickname}</p>
-        <button className="high-score-link-in-nav" onClick={handleNavigateToHighScore}>Highscore</button>
+        <button
+          className="high-score-link-in-nav"
+          onClick={handleNavigateToHighScore}
+        >
+          Highscore
+        </button>
         {/* <Link to="/highscore">Maratontabell</Link> */}
         <button className="log-out-btn" onClick={handleLogoutFromHangmanView}>
           Logga ut
@@ -99,10 +107,12 @@ const Nav = ({ gameIsRunning }: NavProps) => {
             <div className="middle-of-overlay">
               <p>Är du säker?</p>
               <p>Detta innebär en förlust i statistiken.</p>
-              <button onClick={handleConfirmLosingGameAndNavigate}>JA</button>
-              <button onClick={() => setConfirmLosingGameAndNavigate(false)}>
-                AVBRYT
-              </button>
+              <div className="yes-or-cancel-buttons">
+                <button onClick={handleConfirmLosingGameAndNavigate}>JA</button>
+                <button onClick={() => setConfirmLosingGameAndNavigate(false)}>
+                  AVBRYT
+                </button>
+              </div>
             </div>
           </>
         )}
@@ -113,10 +123,12 @@ const Nav = ({ gameIsRunning }: NavProps) => {
             <div className="middle-of-overlay">
               <p>Är du säker?</p>
               <p>Detta innebär en förlust i statistiken.</p>
-              <button onClick={handleConfirmLosingGameAndLogout}>JA</button>
-              <button onClick={() => setConfirmLosingGameAndLogout(false)}>
-                AVBRYT
-              </button>
+              <div className="yes-or-cancel-buttons">
+                <button onClick={handleConfirmLosingGameAndLogout}>JA</button>
+                <button onClick={() => setConfirmLosingGameAndLogout(false)}>
+                  AVBRYT
+                </button>
+              </div>
             </div>
           </>
         )}

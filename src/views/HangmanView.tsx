@@ -15,8 +15,7 @@ const HangmanView = () => {
   const [wordToGuess, setWordToGuess] = useState("");
   const [guessedLetters, setGuessedLetters] = useState<string[]>([]);
   const [gameIsRunning, setGameIsRunning] = useState(false);
-  const [confirmLosingGameAndNewWord, setConfirmLosingGameAndNewWord] =
-    useState(false);
+  const [windowOpen, setWindowOpen] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   const incorrectLetters = guessedLetters.filter(
@@ -24,11 +23,8 @@ const HangmanView = () => {
   );
 
   const isWinner =
-    wordToGuess === ""
-      ? false
-      : wordToGuess
-          .split("")
-          .every((letter) => guessedLetters.includes(letter));
+    wordToGuess !== "" &&
+    wordToGuess.split("").every((letter) => guessedLetters.includes(letter));
 
   const isLoser = incorrectLetters.length >= 10;
 
@@ -46,42 +42,42 @@ const HangmanView = () => {
       await apiService.createNewGameResultAsync(result);
     } catch (err: any) {
       setError(err.message || "An unknown error occurred.");
-    } finally {
-      setGameIsRunning(false);
     }
   };
 
   useEffect(() => {
-    if (isWinner) {
-      const result: IGameResultRequest = {
-        isWinner: true,
-      };
-      sendGameResult(result);
-    } else if (isLoser) {
-      const result: IGameResultRequest = {
-        isWinner: false,
-      };
-      sendGameResult(result);
-    }
+    const handleResult = async () => {
+      if (isWinner) {
+        const audioApplause = new Audio("/sounds/applause.mp3");
+        audioApplause.play();
+        await sendGameResult({ isWinner: true });
+        setGameIsRunning(false);
+      } else if (isLoser) {
+        const audioScream = new Audio("/sounds/scream.mp3");
+        audioScream.play();
+        await sendGameResult({ isWinner: false });
+        setGameIsRunning(false);
+      }
+    };
+
+    handleResult();
   }, [isWinner, isLoser]);
 
   const startGame = () => {
-    if (gameIsRunning) {
-      setConfirmLosingGameAndNewWord(true);
-    } else {
+    if (!gameIsRunning) {
       setGuessedLetters([]);
       setWordToGuess(getWord());
       setGameIsRunning(true);
+    } else {
+      setWindowOpen(true);
     }
   };
 
-  const handleConfirmLosingGameAndNewWord = () => {
-    const result: IGameResultRequest = {
-      isWinner: false,
-    };
-    setConfirmLosingGameAndNewWord(false);
-    sendGameResult(result);    
-    startGame();
+  const handleConfirmLosingGameAndNewWord = async () => {
+    await sendGameResult({ isWinner: false });
+    setWindowOpen(false);
+    setGuessedLetters([]);
+    setWordToGuess(getWord());
   };
 
   if (error)
@@ -144,19 +140,19 @@ const HangmanView = () => {
             wordToGuess.includes(letter)
           )}
           incorrectLetters={incorrectLetters}
-          disabledBecauseGameIsOver={isWinner || isLoser}
+          disabledBecauseGameIsNotRunning={!gameIsRunning}
         />
 
-        {confirmLosingGameAndNewWord && (
+        {windowOpen && (
           <>
             <div className="overlay" onClick={(e) => e.stopPropagation()} />
             <div className="middle-of-overlay">
               <p>Är du säker?</p>
               <p>Detta innebär en förlust i statistiken.</p>
-              <button onClick={handleConfirmLosingGameAndNewWord}>JA</button>
-              <button onClick={() => setConfirmLosingGameAndNewWord(false)}>
-                AVBRYT
-              </button>
+              <div className="yes-or-cancel-buttons">
+                <button onClick={handleConfirmLosingGameAndNewWord}>JA</button>
+                <button onClick={() => setWindowOpen(false)}>AVBRYT</button>
+              </div>
             </div>
           </>
         )}
