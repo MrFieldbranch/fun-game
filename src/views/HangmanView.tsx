@@ -96,7 +96,7 @@ const HangmanView = () => {
       <Nav gameIsRunning={gameIsRunning} />
       <div className="hangman">
         <div className="hangman-upper-part">
-          <div className="new-word-and-result-message-container">
+          <div className="hangman-upper-left-part">
             <button className="new-word-btn" onClick={startGame}>
               Nytt ord
             </button>
@@ -104,13 +104,13 @@ const HangmanView = () => {
               {isWinner && (
                 <div>
                   <p>Grattis! Du vann.</p>
-                  <p>Tryck på knappen för att få fram ett nytt ord.</p>
+                  <p>Tryck på knappen för att<br />få fram ett nytt ord.</p>
                 </div>
               )}
               {isLoser && (
                 <div>
                   <p>Tyvärr, du förlorade.</p>
-                  <p>Tryck på knappen för att få fram ett nytt ord.</p>
+                  <p>Tryck på knappen för att<br />få fram ett nytt ord.</p>
                 </div>
               )}
             </div>

@@ -2,8 +2,9 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import apiService from "../services/api-service";
 import { useState } from "react";
 import { IGameResultRequest } from "../models/IGameResultRequest";
+import hamburger from "../images/icons8-hamburger-menu-64.png";
 
-// Jag behöver inte ha med setGameIsRunning som prop. 
+// Jag behöver inte ha med setGameIsRunning som prop.
 // Den nollställs ändå, när jag navigerar till HangmanView.
 
 type NavProps = {
@@ -16,6 +17,7 @@ const Nav = ({ gameIsRunning }: NavProps) => {
   const [confirmLosingGameAndLogout, setConfirmLosingGameAndLogout] =
     useState(false);
   const [errorInNav, setErrorInNav] = useState<string | null>(null);
+  const [hamburgerMenuOpen, setHamburgerMenuOpen] = useState(false);
 
   const navigate = useNavigate();
 
@@ -57,7 +59,7 @@ const Nav = ({ gameIsRunning }: NavProps) => {
     const result: IGameResultRequest = {
       isWinner: false,
     };
-    setConfirmLosingGameAndNavigate(false);	
+    setConfirmLosingGameAndNavigate(false);
     sendGameResult(result);
     navigate("/highscore");
   };
@@ -96,10 +98,48 @@ const Nav = ({ gameIsRunning }: NavProps) => {
         >
           Highscore
         </button>
-        {/* <Link to="/highscore">Maratontabell</Link> */}
+
         <button className="log-out-btn" onClick={handleLogoutFromHangmanView}>
           Logga ut
         </button>
+
+        {!hamburgerMenuOpen && (
+          <img
+            src={hamburger}
+            alt="Picture of a hamburger menu"
+            onClick={() => setHamburgerMenuOpen(true)}
+          />
+        )}
+        {hamburgerMenuOpen && (
+          <div
+            className="hamburger-menu-open-overlay"
+            onClick={() => setHamburgerMenuOpen(false)}
+          >
+            <div
+              className="hamburger-menu-open"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                className="close-hamburger-menu"
+                onClick={() => setHamburgerMenuOpen(false)}
+              >
+                Stäng meny
+              </button>
+              <button
+                className="high-score-link-in-nav-mobile-view"
+                onClick={handleNavigateToHighScore}
+              >
+                Highscore
+              </button>
+              <button
+                className="log-out-btn-mobile-view"
+                onClick={handleLogoutFromHangmanView}
+              >
+                Logga ut
+              </button>
+            </div>
+          </div>
+        )}
 
         {confirmLosingGameAndNavigate && (
           <>
@@ -139,10 +179,46 @@ const Nav = ({ gameIsRunning }: NavProps) => {
     return (
       <nav>
         <p>Inloggad som: {loggedInUserNickname}</p>
-        <Link to="/hangman">Spela Hänga Gubben</Link>
+        <Link to="/hangman" className="hangman-link-in-nav">
+          Spela Hänga Gubben
+        </Link>
         <button className="log-out-btn" onClick={handleLogoutFromHighScoreView}>
           Logga ut
         </button>
+        {!hamburgerMenuOpen && (
+          <img
+            src={hamburger}
+            alt="Picture of a hamburger menu"
+            onClick={() => setHamburgerMenuOpen(true)}
+          />
+        )}
+        {hamburgerMenuOpen && (
+          <div
+            className="hamburger-menu-open-overlay"
+            onClick={() => setHamburgerMenuOpen(false)}
+          >
+            <div
+              className="hamburger-menu-open"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                className="close-hamburger-menu"
+                onClick={() => setHamburgerMenuOpen(false)}
+              >
+                Stäng meny
+              </button>
+              <Link to="/hangman" className="hangman-link-in-nav-mobile-view">
+                Spela Hänga Gubben
+              </Link>
+              <button
+                className="log-out-btn-mobile-view"
+                onClick={handleLogoutFromHighScoreView}
+              >
+                Logga ut
+              </button>
+            </div>
+          </div>
+        )}
       </nav>
     );
 };

@@ -13,12 +13,12 @@ const StartView = () => {
       <h1>HANGMAN</h1>
       <div className="skeleton-image-container" />
       <div className="start-links">
-        <div id="login-link">
-          <Link to="/login">LOGGA IN</Link>
-        </div>
-        <div id="register-link">
-          <Link to="/registernewuser">NY ANVÄNDARE</Link>
-        </div>
+        <Link to="/login" className="start-link">
+          LOGGA IN
+        </Link>
+        <Link to="/registernewuser" className="start-link">
+          NY ANVÄNDARE
+        </Link>
       </div>
     </div>
   );

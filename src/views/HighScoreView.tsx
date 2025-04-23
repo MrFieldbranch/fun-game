@@ -78,56 +78,66 @@ const HighScoreView = () => {
       <Nav />
       <div className="high-score">
         <div className="high-score-headers">
-          <div className="high-score-header-group">
+          <div className="high-score-header-group col-1 margin-right-table">
             <h2>Namn</h2>
             <div className="high-score-sorting-buttons">
-              <button
-                className="direction-1"
-                onClick={sortUsersByNicknameAsc}
-              >A on top</button>
-              <button
-                className="direction-2"
-                onClick={sortUsersByNicknameDesc}
-              >Ö on top</button>
+              <button className="direction-1" onClick={sortUsersByNicknameAsc}>
+                A on top
+              </button>
+              <button className="direction-2" onClick={sortUsersByNicknameDesc}>
+                Ö on top
+              </button>
             </div>
           </div>
-          <div className="high-score-header-group">
+          <div className="high-score-header-group col-2 margin-right-table">
             <h2>Antal spel</h2>
             <div className="high-score-sorting-buttons">
               <button
                 className="direction-1"
                 onClick={sortUsersByNumberOfGamesDesc}
-              >Max on top</button>
+              >
+                Max on top
+              </button>
               <button
                 className="direction-2"
                 onClick={sortUsersByNumberOfGamesAsc}
-              >Min on top</button>
+              >
+                Min on top
+              </button>
             </div>
           </div>
-          <div className="high-score-header-group">
+          <div className="high-score-header-group col-3 margin-right-table">
             <h2>Antal vinster</h2>
             <div className="high-score-sorting-buttons">
               <button
                 className="direction-1"
                 onClick={sortUsersByNumberOfWinsDesc}
-              >Max on top</button>
+              >
+                Max on top
+              </button>
               <button
                 className="direction-2"
                 onClick={sortUsersByNumberOfWinsAsc}
-              >Min on top</button>
+              >
+                Min on top
+              </button>
             </div>
           </div>
-          <div className="high-score-header-group">
+          <div className="high-score-header-group col-4 margin-right-table">
             <h2>Vinstprocent</h2>
             <div className="high-score-sorting-buttons">
               <button
                 className="direction-1"
                 onClick={sortUsersByWinPercentDesc}
-              >Max on top</button>
+              >
+                Max on top
+              </button>
               <button
                 className="direction-2"
                 onClick={sortUsersByWinPercentAsc}
-              >Min on top</button>
+              >
+                Min on top
+              </button>
             </div>
           </div>
         </div>
@@ -136,10 +146,10 @@ const HighScoreView = () => {
         ) : (
           listOfUsers.map((user) => (
             <div className="high-score-user" key={user.id}>
-              <p className="user-record-data">{user.nickname}</p>
-              <p className="user-record-data">{user.numberOfGames}</p>
-              <p className="user-record-data">{user.numberOfWins}</p>
-              <p className="user-record-data">{user.winPercent}</p>
+              <p className="col-1 margin-right-table">{user.nickname}</p>
+              <p className="col-2 margin-right-table">{user.numberOfGames}</p>
+              <p className="col-3 margin-right-table">{user.numberOfWins}</p>
+              <p className="col-4 margin-right-table">{user.winPercent}</p>
             </div>
           ))
         )}

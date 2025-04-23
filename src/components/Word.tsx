@@ -10,13 +10,7 @@ const Word = ({ guessedLetters, wordToGuess, reveal = false }: WordProps) => {
       {wordToGuess.split("").map((letter, index) => (
         <span
           key={index}
-          style={{
-            borderBottom: "0.5rem solid white",
-            height: "6.2rem",
-            display: "inline-block",
-            width: "4rem",
-            textAlign: "center",
-          }}
+		  className="word-outer-span"          
         >
           <span
             style={{
