@@ -135,7 +135,7 @@ const RegisterNewUserView = () => {
         </button>
       </div>
 
-      <Link to="/start" className="link">
+      <Link to="/start" className="link-to-start-in-login-register">
         Tillbaka till Start
       </Link>
     </div>

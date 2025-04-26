@@ -73,7 +73,7 @@ const LoginView = () => {
         <button onClick={() => handleLogin(email, password)}>OK</button>
       </div>
 
-      <Link to="/start" className="link">Tillbaka till Start</Link>
+      <Link to="/start" className="link-to-start-in-login-register">Tillbaka till Start</Link>
     </div>
   );
 };

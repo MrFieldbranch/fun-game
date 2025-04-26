@@ -19,19 +19,36 @@ body {
   min-height: 100vh;
 }
 
-h1 {
+.login-register h1,
+.not-found h1 {
   font-size: 4rem;
 }
 
-p {
+nav p,
+.middle-of-overlay p,
+.loading p,
+.no-users-exist {
   font-size: 1.6rem;
 }
 
 a {
-  font-size: 1.6rem;
-  color: white;
   font-weight: bold;
   text-decoration: none;
+}
+
+.hangman-link-in-nav,
+.not-found a {
+  font-size: 1.6rem;
+  color: white;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: bold;
+  /* font-size: 1.6rem;
+  padding: 0.5rem 1rem; */
 }
 
 a,
@@ -53,15 +70,6 @@ input {
 
 label {
   font-size: 1.4rem;
-}
-
-button {
-  cursor: pointer;
-  border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 0.5rem;
-  font-size: 1.6rem;
-  font-weight: bold;
 }
 
 .start {
@@ -92,11 +100,9 @@ button {
   display: flex;
 }
 
-.start-links a {
-  font-size: 2.5rem;
-}
-
 .start-link {
+  color: white;
+  font-size: 2.5rem;
   width: 50%;
   text-align: center;
   padding: 1rem 0;
@@ -109,7 +115,9 @@ button {
   background-color: rgba(255, 255, 255, 0.2);
 }
 
-.link {
+.link-to-start-in-login-register {
+  font-size: 1.6rem;
+  color: white;
   text-align: center;
   padding: 1rem 2rem;
   background-color: rgba(255, 255, 255, 0.05);
@@ -117,7 +125,7 @@ button {
     0 0 30px rgba(255, 255, 255, 0.08);
 }
 
-.link:hover {
+.link-to-start-in-login-register:hover {
   background-color: rgba(255, 255, 255, 0.2);
 }
 
@@ -137,12 +145,13 @@ button {
   gap: 1rem;
 }
 
-.login-register a {
+.link-to-start-in-login-register {
   font-size: 2rem;
 }
 
 .login-register button {
   background-color: orange;
+  padding: 1rem 2rem;
   font-size: 1.8rem;
 }
 
@@ -172,16 +181,16 @@ nav {
 }
 
 .high-score-link-in-nav {
+  font-size: 1.6rem;
   background-color: inherit;
   color: white;
 }
 
 .log-out-btn {
-  padding: 1rem 2rem;
+  padding: 0.8rem 2rem;
   font-size: 1.6rem;
-  border: none;
-  border-radius: 1rem;
-  background-color: rgba(0, 150, 255, 0.2);
+  /* background-color: rgba(0, 150, 255, 0.2); */
+  background-color: rgb(139, 13, 13);
   color: white;
 }
 
@@ -234,13 +243,13 @@ nav img {
   position: relative;
   font-size: 1rem;
   width: 33rem;
-  height: 41rem;
+  height: 36rem;
 }
 
 .beam-1 {
   position: absolute;
   left: 0;
-  top: 40em;
+  top: 35em;
   width: 25em;
   height: 1em;
   background-color: white;
@@ -251,7 +260,7 @@ nav img {
   top: 0;
   left: 12em;
   width: 1em;
-  height: 40em;
+  height: 35em;
   background-color: white;
 }
 
@@ -360,11 +369,10 @@ nav img {
 
 .keyboard {
   display: grid;
-  grid-template-columns: repeat(10, 1fr); /* 10 columns per row */
+  grid-template-columns: repeat(10, 1fr);
   gap: 1rem;
-  width: 90%;
-  margin: auto;
-  max-width: 600px;
+  width: 50%;
+  margin: 0 auto 2rem;
   justify-content: center;
 }
 
@@ -374,7 +382,7 @@ nav img {
   align-items: center;
   aspect-ratio: 1 / 1;
   width: 100%; /* fills the grid cell */
-  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  font-size: 3.5rem;
   background-color: white;
   font-weight: bold;
   color: black;
@@ -441,10 +449,21 @@ nav img {
   animation: scaleIn 0.3s ease-in-out;
 }
 
+.middle-of-overlay button {
+  padding: 1rem 2rem;
+  font-size: 1.6rem;
+}
+
 .yes-or-cancel-buttons {
   display: flex;
   justify-content: center;
   gap: 1rem;
+}
+
+.yes-or-cancel-buttons button {
+  font-size: 1.6rem;
+  background-color: orange;
+  padding: 1rem 2rem;
 }
 
 /* Fade in animation for overlay */
@@ -536,6 +555,20 @@ nav img {
 }
 
 @media (max-width: 1450px) {
+  .start h1 {
+    font-size: 5rem;
+    margin-top: 10vh;
+  }
+
+  .skeleton-image-container {
+    width: 20rem;
+    height: 40rem;
+  }
+
+  .start-link {
+    font-size: 2rem;
+  }
+
   .hangman-upper-part {
     padding: 0 5%;
   }
@@ -547,7 +580,15 @@ nav img {
   .drawing {
     font-size: 0.8rem;
     width: 26.4rem;
-    height: 32.8rem;
+    height: 28.8rem;
+  }
+
+  .keyboard {
+    gap: 0.6rem;
+  }
+
+  .keyboard-btn {
+    font-size: 3rem;
   }
 
   .high-score-header-group h2 {
@@ -568,10 +609,31 @@ nav img {
 }
 
 @media (max-width: 1140px) {
+  nav {
+    height: 9vh;
+  }
+
+  .hangman {
+    height: 91vh;
+  }
+
+  .skeleton-image-container {
+    width: 14rem;
+    height: 28rem;
+  }
+
+  .start-links {
+    width: 50%;
+  }
+
+  .start-link {
+    font-size: 1.8rem;
+  }
+
   .drawing {
     font-size: 0.6rem;
     width: 19.8rem;
-    height: 24.6rem;
+    height: 21.6rem;
   }
 
   .word {
@@ -582,6 +644,10 @@ nav img {
     border-bottom: 0.3rem solid white;
     height: 4.3rem;
     width: 2.8rem;
+  }
+
+  .keyboard-btn {
+    font-size: 2.5rem;
   }
 
   .high-score-header-group h2 {
@@ -598,17 +664,52 @@ nav img {
 }
 
 @media (max-width: 950px) {
-  p {
+  .skeleton-image-container {
+    width: 12rem;
+    height: 24rem;
+  }
+
+  .login-register h1,
+  .not-found h1 {
+    font-size: 3rem;
+  }
+
+  nav p,
+  .middle-of-overlay p,
+  .loading p,
+  .no-users-exist {
+    /* Kanske ändra för vissa */
     font-size: 1.4rem;
   }
 
-  a {
+  /* a {
     font-size: 1.4rem;
+  } */
+
+  input {
+    width: 30rem;
+    height: 3.5rem;
+  }
+
+  .login-register-upper-part {
+    padding-bottom: 12rem;
+  }
+
+  .link-to-start-in-login-register {
+    font-size: 1.7rem;
+  }
+
+  .login-register button {
+    font-size: 1.7rem;
   }
 
   .log-out-btn {
     font-size: 1.4rem;
     padding: 0.5rem 1rem;
+  }
+
+  .high-score-link-in-nav {
+    font-size: 1.4rem;
   }
 
   .win-or-lose-message p {
@@ -618,7 +719,7 @@ nav img {
   .drawing {
     font-size: 0.5rem;
     width: 16.5rem;
-    height: 20.5rem;
+    height: 18rem;
   }
 
   .word {
@@ -628,6 +729,14 @@ nav img {
   .word-outer-span {
     height: 3.7rem;
     width: 2.5rem;
+  }
+
+  .keyboard {
+    width: 60%;
+  }
+
+  .keyboard-btn {
+    font-size: 2rem;
   }
 
   .high-score-sorting-buttons {
@@ -658,6 +767,10 @@ nav img {
 }
 
 @media (max-width: 770px) {
+  .start-link {
+    font-size: 1.6rem;
+  }
+
   .hangman {
     padding-top: 2rem;
   }
@@ -678,7 +791,6 @@ nav img {
   .word-mobile-view {
     display: flex;
     justify-content: center;
-    padding-top: 2rem;
   }
 
   .word {
@@ -694,7 +806,12 @@ nav img {
   .drawing {
     font-size: 0.4rem;
     width: 13.2rem;
-    height: 16.4rem;
+    height: 14.4rem;
+  }
+
+  .keyboard {
+    width: 65%;
+    gap: 0.3rem;
   }
 
   .high-score-headers {
@@ -733,16 +850,37 @@ nav img {
 }
 
 @media (max-width: 550px) {
-  p {
+  nav p,
+  .middle-of-overlay p,  /* Kanske ändra för vissa */
+  .loading p,
+  .no-users-exist {
     font-size: 1.3rem;
   }
 
-  a {
+  /* a {
     font-size: 1.3rem;
+  } */
+
+  input {
+    width: 25rem;
+  }
+
+  .start h1 {
+    font-size: 4rem;
+  }
+
+  .skeleton-image-container {
+    width: 13rem;
+    height: 26rem;
+  }
+
+  .start-links {
+    width: 65%;
   }
 
   .log-out-btn {
     font-size: 1.3rem;
+    padding: 0.4rem 0.8rem;
   }
 
   .word {
@@ -755,6 +893,14 @@ nav img {
     width: 1.9rem;
   }
 
+  .keyboard {
+    width: 70%;
+  }
+
+  .keyboard-btn {
+    font-size: 1.8rem;
+  }
+
   .margin-right-table {
     margin-right: 3rem;
   }
@@ -762,6 +908,14 @@ nav img {
 
 @media (max-width: 480px) {
   /*  Mobilvy */
+
+  input {
+    width: 23rem;
+  }
+
+  .start-links {
+    width: 75%;
+  }
 
   .hangman-upper-part {
     margin-bottom: 1rem;
@@ -809,38 +963,30 @@ nav img {
     justify-content: space-evenly;
     align-items: flex-start;
     padding: 0 2rem;
-    background-color: rgb(12, 13, 11);
-    box-shadow: 0 0 10px rgba(0, 150, 255, 0.2);
+    background-color: rgb(70, 70, 69);
+    border-bottom: 1px solid white;
   }
 
-  .hamburger-menu-open a {
+  .hangman-link-in-nav-mobile-view {
     color: white;
-  }
-
-  .hamburger-menu-open button {
-    color: white;
+    font-size: 1.6rem;
   }
 
   .close-hamburger-menu {
+    font-size: 1.6rem;
     background-color: inherit;
     padding: 0;
     align-self: flex-end;
-  }
-
-  .keyboard {
-    grid-template-columns: repeat(6, 1fr);
-    width: 70%;
+    color: white;
   }
 
   .high-score-link-in-nav-mobile-view,
   .log-out-btn-mobile-view,
   .hangman-link-in-nav-mobile-view {
-    background-color: white;
-    color: black;
     font-size: 1.6rem;
     padding: 0;
     background-color: inherit;
-    color: rgb(12, 13, 11);
+    color: white;
   }
 
   .high-score-header-group h2 {
@@ -870,9 +1016,35 @@ nav img {
   .col-4 {
     width: 8rem;
   }
+
+  .keyboard {
+    width: 85%;
+  }
+
+  .keyboard-btn {
+    font-size: 1.6rem;
+  }
 }
 
 @media (max-width: 430px) {
+  .start h1 {
+    font-size: 3rem;
+    margin-top: 15vh;
+  }
+
+  .skeleton-image-container {
+    width: 10rem;
+    height: 20rem;
+  }
+
+  .start-links {
+    width: 80%;
+  }
+
+  .start-link {
+    font-size: 1.3rem;
+  }
+
   .word {
     font-size: 1.6rem;
     gap: 0.2rem;
@@ -880,13 +1052,263 @@ nav img {
 
   .word-outer-span {
     height: 2.6rem;
-    width: 1.5rem;
+    width: 1.7rem;
+  }
+
+  .keyboard {
+    grid-template-columns: repeat(6, 1fr);
+    width: 65%;
   }
 }
 
-@media (max-width: 340px) {
+@media (max-width: 350px) {
+  .start-links {
+    width: 90%;
+  }
+
+  .start-link {
+    font-size: 1.2rem;
+  }
+
   .high-score-header-group h2 {
     font-size: 1rem;
+  }
+
+  .keyboard {
+    width: 75%;
+  }
+}
+
+/* Landscape view, small devices */
+
+@media (max-width: 1150px) and (max-height: 480px) {
+  .start h1 {
+    font-size: 2.5rem;
+    margin-top: 5vh;
+  }
+
+  .skeleton-image-container {
+    width: 12rem;
+    height: 24rem;
+  }
+
+  .start-links {
+    width: 50%;
+  }
+
+  .start-link {
+    font-size: 1.6rem;
+  }
+
+  .login-register h1 {
+    font-size: 2.8rem;
+  }
+
+  .login-register-upper-part {
+    padding-bottom: 7rem;
+  }
+
+  .link-to-start-in-login-register {
+    font-size: 1.8rem;
+  }
+
+  nav {
+    height: 10vh;
+  }
+
+  nav p {
+    font-size: 1.4rem;
+  }
+
+  .hangman-link-in-nav {
+    font-size: 1.5rem;
+  }
+
+  .log-out-btn {
+    font-size: 1.4rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .hangman {
+    height: 90vh;
+  }
+
+  .hangman-upper-part {
+    padding: 0 12%;
+    margin-bottom: 0;
+  }
+
+  .new-word-btn {
+    width: 9rem;
+    font-size: 1.4rem;
+  }
+
+  .win-or-lose-message p {
+    font-size: 1.5rem;
+  }
+
+  .word {
+    font-size: 2.8rem;
+    gap: 0.6rem;
+  }
+
+  .word-outer-span {
+    height: 4.3rem;
+    width: 2.5rem;
+  }
+
+  .drawing {
+    font-size: 0.4rem;
+    width: 13.2rem;
+    height: 14.4rem;
+  }
+
+  .keyboard {
+    gap: 0.4rem;
+    width: 50%;
+  }
+
+  .keyboard-btn {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 1012px) and (max-height: 440px) {
+  .login-register-upper-part {
+    padding-bottom: 2rem;
+  }
+
+  
+
+  .login-register h1 {
+    font-size: 2.3rem;
+  }
+
+  .label-and-input {
+    gap: 0.4rem;
+  }
+
+  label {
+    font-size: 1.4rem;
+  }
+
+  input {
+    height: 3.4rem;
+    font-size: 1.6rem;
+  }
+
+  .login-register button {
+    padding: 0.7rem 1.4rem;
+    font-size: 1.6rem;
+  }
+
+  .link-to-start-in-login-register {
+    font-size: 1.6rem;
+    padding: 0.8rem 1.6rem;
+  }
+
+  .login-register-upper-part {
+    padding-bottom: 3rem;
+  }
+
+  .hangman {
+    padding-top: 2rem;
+  }
+
+  .new-word-btn {
+    width: 8rem;
+    font-size: 1.2rem;
+  }
+
+  .win-or-lose-message p {
+    font-size: 1.3rem;
+  }
+
+  .word {
+    font-size: 2.4rem;
+  }
+
+  .word-outer-span {
+    height: 3.8rem;
+    width: 2.4rem;
+  }
+
+  .keyboard-btn {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 920px) and (max-height: 400px) {
+  .start h1 {
+    font-size: 2rem;
+  }
+
+  .login-register h1 {
+    font-size: 1.7rem;
+  }
+
+  .label-and-input {
+    gap: 0.3rem;
+  }
+
+  label {
+    font-size: 1.3rem;
+  }
+
+  input {
+    height: 3rem;
+    font-size: 1.5rem;
+  }
+
+  .login-register button {
+    padding: 0.6rem 1.2rem;
+    font-size: 1.4rem;
+  }
+
+  .link-to-start-in-login-register {
+    font-size: 1.4rem;
+    padding: 0.7rem 1.4rem;
+  }
+
+  .login-register-upper-part {
+    padding-bottom: 2rem;
+  }
+
+  .skeleton-image-container {
+    width: 8rem;
+    height: 16rem;
+  }
+
+  .start-links {
+    width: 65%;
+  }
+
+  .start-link {
+    font-size: 1.4rem;
+  }
+
+  .drawing {
+    font-size: 0.3rem;
+    width: 9.9rem;
+    height: 10.8rem;
+  }
+
+  .word {
+    font-size: 2rem;
+  }
+
+  .word-outer-span {
+    height: 3.1rem;
+    width: 2.1rem;
+  }
+
+  .keyboard {
+    width: 50%;
+    gap: 0.3rem;
+  }
+
+  .keyboard-btn {
+    font-size: 1.7rem;
   }
 }
 

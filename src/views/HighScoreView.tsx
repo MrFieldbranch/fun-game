@@ -69,7 +69,9 @@ const HighScoreView = () => {
 
   if (isLoading) {
     return (
-      <p>Laddar listan...</p>
+      <div className="loading">
+        <p>Laddar listan...</p>
+      </div>
     ); /* Kanske wrappa p-taggen så att den hamnar i mitten? */
   }
 
@@ -142,7 +144,7 @@ const HighScoreView = () => {
           </div>
         </div>
         {listOfUsers.length === 0 ? (
-          <p>Inga användare finns</p>
+          <p className="no-users-exist">Inga användare finns</p>
         ) : (
           listOfUsers.map((user) => (
             <div className="high-score-user" key={user.id}>
