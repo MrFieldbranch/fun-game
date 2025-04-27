@@ -50,6 +50,8 @@ const RegisterNewUserView = () => {
       );
       apiService.setAuthorizationHeader(loginResponse.token);
       localStorage.setItem("nickname", loginResponse.nickname);
+      const audioEvilLaugh = new Audio("/sounds/evil-laugh.mp3");
+      audioEvilLaugh.play();
       navigate("/hangman");
     } catch (err: any) {
       setLoginError(err.message || "Inloggningen misslyckades");

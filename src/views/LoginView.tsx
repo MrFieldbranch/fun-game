@@ -7,7 +7,7 @@ import apiService from "../services/api-service";
 const LoginView = () => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
-  const [loginError, setLoginError] = useState<string | null>(null);
+  const [loginError, setLoginError] = useState<string | null>(null); 
 
   const navigate = useNavigate();
 
@@ -22,6 +22,8 @@ const LoginView = () => {
       );
       apiService.setAuthorizationHeader(loginResponse.token);
       localStorage.setItem("nickname", loginResponse.nickname);
+      const audioEvilLaugh = new Audio("/sounds/evil-laugh.mp3");
+      audioEvilLaugh.play();
       navigate("/hangman");
     } catch (err: any) {
       setLoginError(err.message || "Inloggningen misslyckades.");
@@ -73,7 +75,9 @@ const LoginView = () => {
         <button onClick={() => handleLogin(email, password)}>OK</button>
       </div>
 
-      <Link to="/start" className="link-to-start-in-login-register">Tillbaka till Start</Link>
+      <Link to="/start" className="link-to-start-in-login-register">
+        Tillbaka till Start
+      </Link>
     </div>
   );
 };
