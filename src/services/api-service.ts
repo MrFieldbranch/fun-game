@@ -163,6 +163,6 @@ export class ApiService {
   }
 }
 
-const apiUrl = "https://localhost:8000";
+const apiUrl = import.meta.env.VITE_API_URL;
 const apiService = new ApiService(apiUrl); /* Singleton */
 export default apiService;
