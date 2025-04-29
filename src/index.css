@@ -47,8 +47,6 @@ button {
   border: none;
   border-radius: 0.5rem;
   font-weight: bold;
-  /* font-size: 1.6rem;
-  padding: 0.5rem 1rem; */
 }
 
 a,
@@ -190,7 +188,6 @@ nav {
 .log-out-btn {
   padding: 0.8rem 2rem;
   font-size: 1.6rem;
-  /* background-color: rgba(0, 150, 255, 0.2); */
   background-color: rgb(139, 13, 13);
   color: white;
 }
@@ -244,13 +241,13 @@ nav img {
   position: relative;
   font-size: 1rem;
   width: 33rem;
-  height: 36rem;
+  height: 39rem;
 }
 
 .beam-1 {
   position: absolute;
   left: 0;
-  top: 35em;
+  top: 38em;
   width: 25em;
   height: 1em;
   background-color: white;
@@ -261,7 +258,7 @@ nav img {
   top: 0;
   left: 12em;
   width: 1em;
-  height: 35em;
+  height: 38em;
   background-color: white;
 }
 
@@ -364,26 +361,24 @@ nav img {
   border-bottom: 0.4rem solid white;
   height: 4.9rem;
   display: inline-block;
-  width: 3.6rem;
+  width: 3.8rem;
   text-align: center;
 }
 
 .keyboard {
   display: grid;
   grid-template-columns: repeat(10, 1fr);
-  gap: 1rem;
-  width: 50%;
+  gap: 0.2rem;
   margin: 0 auto 2rem;
   justify-content: center;
 }
 
 .keyboard-btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  padding: 2.2rem;
   aspect-ratio: 1 / 1;
-  width: 100%; /* fills the grid cell */
-  font-size: 3.5rem;
+  font-size: 3.3rem;
+  line-height: 1;
+  vertical-align: middle;
   background-color: white;
   font-weight: bold;
   color: black;
@@ -494,6 +489,10 @@ nav img {
   padding-left: 2rem;
 }
 
+.high-score p {
+  font-size: 1.7rem;
+}
+
 .high-score-headers,
 .high-score-user {
   display: flex;
@@ -546,6 +545,16 @@ nav img {
 }
 
 @media (max-width: 1800px) {
+  .skeleton-image-container {
+    width: 18rem;
+    height: 36rem;
+  }
+
+  .keyboard-btn {
+    padding: 2rem;
+    font-size: 3rem;
+  }
+
   .high-score-header-group h2 {
     font-size: 2rem;
   }
@@ -562,8 +571,8 @@ nav img {
   }
 
   .skeleton-image-container {
-    width: 20rem;
-    height: 40rem;
+    width: 15rem;
+    height: 30rem;
   }
 
   .start-link {
@@ -581,15 +590,12 @@ nav img {
   .drawing {
     font-size: 0.8rem;
     width: 26.4rem;
-    height: 28.8rem;
-  }
-
-  .keyboard {
-    gap: 0.6rem;
+    height: 31.2rem;
   }
 
   .keyboard-btn {
-    font-size: 3rem;
+    padding: 1.9rem;
+    font-size: 2.85rem;
   }
 
   .high-score-header-group h2 {
@@ -634,7 +640,7 @@ nav img {
   .drawing {
     font-size: 0.6rem;
     width: 19.8rem;
-    height: 21.6rem;
+    height: 23.4rem;
   }
 
   .word {
@@ -645,10 +651,6 @@ nav img {
     border-bottom: 0.3rem solid white;
     height: 4.3rem;
     width: 2.8rem;
-  }
-
-  .keyboard-btn {
-    font-size: 2.5rem;
   }
 
   .high-score-header-group h2 {
@@ -683,10 +685,6 @@ nav img {
     font-size: 1.4rem;
   }
 
-  /* a {
-    font-size: 1.4rem;
-  } */
-
   input {
     width: 30rem;
     height: 3.5rem;
@@ -720,7 +718,7 @@ nav img {
   .drawing {
     font-size: 0.5rem;
     width: 16.5rem;
-    height: 18rem;
+    height: 19.5rem;
   }
 
   .word {
@@ -732,12 +730,9 @@ nav img {
     width: 2.5rem;
   }
 
-  .keyboard {
-    width: 60%;
-  }
-
   .keyboard-btn {
-    font-size: 2rem;
+    padding: 1.6rem;
+    font-size: 2.4rem;
   }
 
   .high-score-sorting-buttons {
@@ -807,12 +802,12 @@ nav img {
   .drawing {
     font-size: 0.4rem;
     width: 13.2rem;
-    height: 14.4rem;
+    height: 15.6rem;
   }
 
-  .keyboard {
-    width: 65%;
-    gap: 0.3rem;
+  .keyboard-btn {
+    padding: 1.4rem;
+    font-size: 2.1rem;
   }
 
   .high-score-headers {
@@ -858,10 +853,6 @@ nav img {
     font-size: 1.3rem;
   }
 
-  /* a {
-    font-size: 1.3rem;
-  } */
-
   input {
     width: 25rem;
   }
@@ -895,11 +886,12 @@ nav img {
   }
 
   .keyboard {
-    width: 70%;
+    grid-template-columns: repeat(6, 1fr);
   }
 
   .keyboard-btn {
-    font-size: 1.8rem;
+    padding: 1.7rem;
+    font-size: 2.55rem;
   }
 
   .margin-right-table {
@@ -1017,14 +1009,6 @@ nav img {
   .col-4 {
     width: 8rem;
   }
-
-  .keyboard {
-    width: 85%;
-  }
-
-  .keyboard-btn {
-    font-size: 1.6rem;
-  }
 }
 
 @media (max-width: 430px) {
@@ -1056,9 +1040,9 @@ nav img {
     width: 1.7rem;
   }
 
-  .keyboard {
-    grid-template-columns: repeat(6, 1fr);
-    width: 65%;
+  .keyboard-btn {
+    padding: 1.5rem;
+    font-size: 2.25rem;
   }
 }
 
@@ -1071,18 +1055,19 @@ nav img {
     font-size: 1.2rem;
   }
 
+  .keyboard-btn {
+    padding: 1.4rem;
+    font-size: 2.1rem;
+  }
+
   .high-score-header-group h2 {
     font-size: 1rem;
   }
-
-  .keyboard {
-    width: 75%;
-  }
 }
 
-/* Landscape view, small devices */
+/* Landscape view, mobile devices */
 
-@media (max-width: 1150px) and (max-height: 480px) {
+@media (max-width: 1130px) and (max-height: 490px) {
   .start h1 {
     font-size: 2.5rem;
     margin-top: 5vh;
@@ -1161,16 +1146,16 @@ nav img {
   .drawing {
     font-size: 0.4rem;
     width: 13.2rem;
-    height: 14.4rem;
+    height: 15.6rem;
   }
 
   .keyboard {
-    gap: 0.4rem;
-    width: 50%;
+    grid-template-columns: repeat(15, 1fr);
   }
 
   .keyboard-btn {
-    font-size: 2.2rem;
+    padding: 1.6rem;
+    font-size: 2.4rem;
   }
 }
 
@@ -1178,8 +1163,6 @@ nav img {
   .login-register-upper-part {
     padding-bottom: 2rem;
   }
-
-  
 
   .login-register h1 {
     font-size: 2.3rem;
@@ -1232,10 +1215,6 @@ nav img {
   .word-outer-span {
     height: 3.8rem;
     width: 2.4rem;
-  }
-
-  .keyboard-btn {
-    font-size: 1.5rem;
   }
 }
 
@@ -1291,7 +1270,7 @@ nav img {
   .drawing {
     font-size: 0.3rem;
     width: 9.9rem;
-    height: 10.8rem;
+    height: 11.7rem;
   }
 
   .word {
@@ -1303,13 +1282,9 @@ nav img {
     width: 2.1rem;
   }
 
-  .keyboard {
-    width: 50%;
-    gap: 0.3rem;
-  }
-
   .keyboard-btn {
-    font-size: 1.7rem;
+    padding: 1.2rem;
+    font-size: 1.8rem;
   }
 }
 

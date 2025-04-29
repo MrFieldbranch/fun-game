@@ -52,8 +52,12 @@ const Keyboard = ({
           <button
             key={letter}
             onClick={() => addGuessedLetter(letter)}
-            className={`keyboard-btn ${isCorrect ? "correct-letter-btn" : ""} ${isIncorrect ? "incorrect-letter-btn" : ""}`}
-			disabled={isCorrect || isIncorrect || disabledBecauseGameIsNotRunning}
+            className={`keyboard-btn ${isCorrect ? "correct-letter-btn" : ""} ${
+              isIncorrect ? "incorrect-letter-btn" : ""
+            }`}
+            disabled={
+              isCorrect || isIncorrect || disabledBecauseGameIsNotRunning
+            }
           >
             {letter}
           </button>
